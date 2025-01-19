@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:23:19 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/18 14:25:11 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/01/19 12:03:44 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,30 @@ void int_increment(int &i)
 
 int main()
 {
-	int a[] = {0, 1, 2, 3, 4};
-	int size = sizeof(a) / sizeof(int);
+	int arr[] = {0, 1, 2, 3, 4};
+	char str[] = "abc";
+	size_t arr_size = sizeof(arr) / sizeof(int);
+	size_t str_size = sizeof(str) / sizeof(char) - 1;
 
-	for (int i = 0; i < size; i++)
-		std::cout << a[i] << std::endl;
+	//Printing using iter and print template funciton
+	std::cout << "Char arr before:" << std::endl;
+	::iter(str, str_size, print<char>);
 
-	std::cout << "---" << std::endl;
+	//inter funciton call with template function
+	::iter(str, str_size, increment<char>);
 
-	::iter(a, 5, increment<int>);
+	//Printing
+	std::cout << "Char arr after:" << std::endl;
+	::iter(str, str_size, print<char>);
+	std::cout << "Int arr before:" << std::endl;
+	::iter(arr, arr_size, print<int>);
 
-	for (int i: a)
-		std::cout << i << std::endl;
-	
-	std::cout << "---" << std::endl;
+	//inter funciton call with regular function
+	::iter(arr, arr_size, int_increment);
 
-	::iter(a, 5, int_increment);
-
-	for (int i: a)
-		std::cout << i << std::endl;
+	//Printing
+	std::cout << "Int arr after:" << std::endl;
+	::iter(arr, arr_size, print<int>);
 	
 	return (0);
 }
