@@ -6,37 +6,38 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 12:06:26 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/19 14:32:36 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/01/20 10:23:47 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
-int main()
-{
-	// std::string str = "test";
-	// for (char &c : str)
-	// 	std::cout << c << std::endl;
-	// int ptr[] = {1, 2, 3, 4};
-	// for (int &i: ptr)
-	// 	std::cout << i << std::endl;
-	
-	Array<int> arr(10);
+//what exactly is an empty array
 
+int main()
+{	
+	Array<int> arr(10);
+	Array<int> two;
+
+	std::cout << "Size of arr: " << arr.size() << std::endl;
+	std::cout << "Size of two: " << two.size() << std::endl;
+	
+	//Exception tesing
 	try
 	{
-		arr[0] = 10;
+		arr[0] = 110;
 		std::cout << arr[0] << std::endl; 
+		std::cout << two[0] << std::endl;
 	}
 	catch (const std::exception &e)
 	{
 		std::cout << "Exception caught: " << e.what() << std::endl;
 	}
 
-	Array<int> two(5);
-
+	//Assignment operator
 	two = arr;
-
 	std::cout << two[0] << std::endl;
+	std::cout << two.size() << std::endl;
 
+	return (0);
 }
