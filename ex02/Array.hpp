@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 12:06:41 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/20 10:11:40 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/04/18 17:32:45 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ class Array
 
   public:
   //Constructors
-	Array(): arr(new T[0]()), len(0) {}; // should it be [0] or [1]?
+	Array(); // should it be [0] or [1]?
 	Array(unsigned int n);
 	Array(const Array &other);
   //Destructor
-	~Array() {std::cout << "Array destructor called" << std::endl; delete[] arr;};
+	~Array();
   //Overload
 	Array& operator=(const Array &other);
 	T& operator[](unsigned int i);

@@ -6,13 +6,19 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 12:50:20 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/19 14:42:53 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/04/18 17:14:30 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
 //Constructor
+template<typename T>
+Array<T>::Array() : arr(new T[0]), len(0)
+{
+}
+
+
 template<typename T>
 Array<T>::Array(unsigned int n) : len(n)
 {
@@ -23,11 +29,18 @@ template<typename T>
 Array<T>::Array(const Array &other): len(other.len)
 {
 	this->arr = new T[this->len]();
-
+	
 	for (size_t i = 0; i < this->len; i++)
-		this->arr[i] = other.arr[i];
+	this->arr[i] = other.arr[i];
 }
 
+//Destructor
+template<typename T>
+Array<T>::~Array()
+{
+	std::cout << "Array destructor called" << std::endl; 
+	delete[] arr;
+}
 //Overload
 template<typename T>
 T& Array<T>::operator[](unsigned int i)
