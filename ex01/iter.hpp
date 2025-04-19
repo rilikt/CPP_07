@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: h4ns <h4ns@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:48:49 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/19 11:57:37 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/04/19 14:30:55 by h4ns             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void print(T x)
 	std::cout << x << std::endl;
 }
 
-template<typename T, typename F>
-void iter(T *ptr, size_t len, F func)
+template<typename T>
+void iter(T *ptr, size_t len, void(*func)(T &i))
 {
 	for (size_t i = 0; i < len; i++)
 		func(ptr[i]);

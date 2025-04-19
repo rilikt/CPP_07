@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: h4ns <h4ns@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:23:19 by timschmi          #+#    #+#             */
-/*   Updated: 2025/04/18 17:40:32 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/04/19 14:32:04 by h4ns             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,23 @@ int main()
 
 	//Printing using iter and print template funciton
 	std::cout << "Char arr before:" << std::endl;
-	::iter(str, str_size, print<char>);
+	::iter(str, str_size, print);
 
 	//inter funciton call with template function
-	::iter(str, str_size, increment<char>);
+	::iter(str, str_size, increment);
 
 	//Printing
 	std::cout << "Char arr after:" << std::endl;
-	::iter(str, str_size, print<char>);
+	::iter(str, str_size, print);
 	std::cout << "Int arr before:" << std::endl;
-	::iter(arr, arr_size, print<int>);
+	::iter(arr, arr_size, print);
 
 	//inter funciton call with regular function
 	::iter(arr, arr_size, int_increment);
 
 	//Printing
 	std::cout << "Int arr after:" << std::endl;
-	::iter(arr, arr_size, print<int>);
+	::iter(arr, arr_size, print);
 	
 	return (0);
 }
